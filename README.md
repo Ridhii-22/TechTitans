@@ -36,5 +36,5 @@ Savya is a one-stop solution that demystifies this process. By answering a few s
 When the hackathon asks for your submission (usually on a platform like Devpost or a Google Form), you are now fully prepared. You will provide them with:
 
 1.  *The GitHub Repository Link:* https://github.com/your-username/your-repository-name
-2.  *The Live Demo Link:* https://your-username.github.io/your-repository-name/
+2.  *The Live Demo Link:* http://tinylink.in/Savya-TechTitan
 
