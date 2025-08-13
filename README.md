@@ -5,8 +5,8 @@ Savya is a single-page web application designed to simplify the process of under
 
 The application features an interactive wizard that personalizes a dashboard based on user input, aiming to make the "Ease of Doing Business" (EODB) more accessible.
 
-![Savya EODB Navigator Screenshot](<img width="1919" height="871" alt="Screenshot 2025-08-13 103512" src="https://github.com/user-attachments/assets/e2eea751-2672-43ee-ba16-698a875f541f" />
-)
+![Savya EODB Navigator Screenshot]("C:\Users\ridhi\OneDrive\Pictures\Screenshots\Screenshot 2025-08-13 103512.png")
+
 
 ---
 
