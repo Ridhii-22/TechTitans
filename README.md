@@ -1,4 +1,3 @@
-# TechTitans
 # Savya - EODB Navigator
 
 Savya is a single-page web application designed to simplify the process of understanding business compliance requirements in Delhi, India. It provides a user-friendly interface for entrepreneurs to quickly identify the licenses and government schemes relevant to their specific business sector.
