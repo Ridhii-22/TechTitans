@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savya - EODB Navigator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .hidden-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .visible-section {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white">
+
+    <div class="relative min-h-screen">
+
+        <nav class="sticky top-0 z-50 glass-card shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <h1 class="text-2xl font-bold text-white">Savya</h1>
+                    <div class="hidden md:block">
+                        <button class="bg-white text-blue-600 font-bold py-2 px-5 rounded-md hover:bg-gray-200 transition duration-300">Login</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main id="landingPage" class="visible-section py-24 px-4 text-center">
+             <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-7xl">
+                <span class="block">Stop Guessing.</span>
+                <span class="block">Start Building. Your Delhi Business Roadmap Awaits.</span>
+            </h1>
+            <p class="mt-6 max-w-md mx-auto text-lg text-gray-200 sm:text-xl md:mt-8 md:max-w-3xl">
+                From Pollution Control to GST, get a unified, AI-powered dashboard that simplifies every license, tracks your progress, and unlocks government schemes.
+            </p>
+            <div class="mt-10">
+                <button id="startWizardBtn" class="transform transition duration-300 hover:scale-105 w-full flex items-center justify-center px-8 py-4 border border-transparent text-lg font-bold rounded-full text-blue-600 bg-white hover:bg-gray-200 md:w-auto mx-auto">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-3"></i>
+                    Create My Roadmap in 2 Minutes
+                </button>
+            </div>
+        </main>
+
+        <section id="wizard" class="hidden-section max-w-2xl mx-auto py-20 px-4">
+            <div class="glass-card p-8 rounded-2xl shadow-2xl">
+                <h2 class="text-3xl font-bold text-center mb-2">Tell Us About Your Business</h2>
+                <p class="text-center text-gray-300 mb-8">This will help us create your personalized compliance dashboard.</p>
+                <form id="wizardForm" class="space-y-6">
+                    <div>
+                        <label class="font-semibold text-lg">What is your primary business sector?</label>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
+                            <label class="glass-card p-4 rounded-lg cursor-pointer text-center has-[:checked]:bg-white/20"><input type="radio" name="sector" value="manufacturing" class="sr-only" required> <i class="fa-solid fa-industry block mb-1"></i> Manufacturing</label>
+                            <label class="glass-card p-4 rounded-lg cursor-pointer text-center has-[:checked]:bg-white/20"><input type="radio" name="sector" value="services" class="sr-only"> <i class="fa-solid fa-concierge-bell block mb-1"></i> Services</label>
+                            <label class="glass-card p-4 rounded-lg cursor-pointer text-center has-[:checked]:bg-white/20"><input type="radio" name="sector" value="trading" class="sr-only"> <i class="fa-solid fa-store block mb-1"></i> Trading/Retail</label>
+                            <label class="glass-card p-4 rounded-lg cursor-pointer text-center has-[:checked]:bg-white/20"><input type="radio" name="sector" value="food" class="sr-only"> <i class="fa-solid fa-utensils block mb-1"></i> Food Service</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="font-semibold text-lg">Which of the following will apply?</label>
+                        <div class="space-y-2 mt-2">
+                            <label class="flex items-center glass-card p-3 rounded-lg has-[:checked]:bg-white/20"><input type="checkbox" name="hasEmployees" class="h-4 w-4 accent-cyan-300 bg-transparent rounded mr-3">Will you hire employees?</label>
+                            <label class="flex items-center glass-card p-3 rounded-lg has-[:checked]:bg-white/20"><input type="checkbox" name="isStartup" class="h-4 w-4 accent-cyan-300 bg-transparent rounded mr-3">Is your business a registered Startup?</label>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 font-bold text-white py-3 rounded-lg transition-colors">
+                            <i class="fa-solid fa-gears mr-2"></i> Generate My Dashboard
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section id="dashboard" class="hidden-section max-w-7xl mx-auto py-12 px-4">
+            <h1 class="text-4xl font-bold text-white mb-10">Your Personalized EODB Dashboard</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-2 space-y-8">
+                    <div id="licensesContainer"></div>
+                    <div id="schemesContainer"></div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="glass-card p-6 rounded-2xl shadow-2xl">
+                        <h2 class="text-2xl font-semibold text-white mb-4 flex items-center"><i class="fas fa-robot mr-3 text-green-300"></i>AI Compliance Assistant</h2>
+                        <div class="space-y-3">
+                            <button class="w-full text-left bg-white/20 p-3 rounded-lg text-sm text-white hover:bg-white/30 transition-colors">What is DPCC Consent?</button>
+                            <button class="w-full text-left bg-white/20 p-3 rounded-lg text-sm text-white hover:bg-white/30 transition-colors">Documents for MCD License?</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+      
+        const landingPage = document.getElementById('landingPage');
+        const wizard = document.getElementById('wizard');
+        const dashboard = document.getElementById('dashboard');
+        const startWizardBtn = document.getElementById('startWizardBtn');
+        const wizardForm = document.getElementById('wizardForm');
+
+        function showSection(section) {
+            [landingPage, wizard, dashboard].forEach(s => {
+                s.classList.add('hidden-section');
+                s.classList.remove('visible-section');
+            });
+            section.classList.remove('hidden-section');
+            section.classList.add('visible-section');
+        }
+
+        
+        startWizardBtn.addEventListener('click', () => showSection(wizard));
+
+        
+        wizardForm.addEventListener('submit', event => {
+            event.preventDefault(); 
+
+            const formData = new FormData(wizardForm);
+            const selections = {
+                sector: formData.get('sector'),
+                hasEmployees: formData.has('hasEmployees'),
+                isStartup: formData.has('isStartup')
+            };
+
+            
+            generateDashboard(selections);
+            
+          
+            showSection(dashboard);
+            
+         
+            window.scrollTo(0,0);
+        });
+
+        
+        const db = {
+            licenses: [
+                { id: 'gst', name: 'GST Registration', dept: 'Goods and Services Tax', requiredFor: ['manufacturing', 'services', 'trading', 'food'] },
+                { id: 'mcd', name: 'Municipal Corporation License', dept: 'Municipal Corporation of Delhi (MCD)', requiredFor: ['manufacturing', 'trading', 'food'] },
+                { id: 'dpcc', name: 'Pollution Control Consent', dept: 'Delhi Pollution Control Committee', requiredFor: ['manufacturing'] },
+                { id: 'fssai', name: 'FSSAI Food License', dept: 'Food Safety and Standards Authority', requiredFor: ['food'] },
+                { id: 'esi', name: 'ESI Registration', dept: 'Employees\' State Insurance', requiredFor: ['hasEmployees'] },
+            ],
+            schemes: [
+                { id: 'startup_policy', name: 'Delhi Startup Policy - Financial Incentives', desc: 'Get reimbursed for lease rentals, patents, and more.', requiredFor: ['isStartup'] },
+                { id: 'pma', name: 'Prime Minister\'s Employment Generation Programme', desc: 'Credit-linked subsidy for new micro-enterprises.', requiredFor: ['manufacturing', 'services'] },
+            ]
+        };
+
+
+        function generateDashboard(selections) {
+            const licensesContainer = document.getElementById('licensesContainer');
+            const schemesContainer = document.getElementById('schemesContainer');
+
+            const requiredLicenses = db.licenses.filter(lic => 
+                lic.requiredFor.includes(selections.sector) || (selections.hasEmployees && lic.requiredFor.includes('hasEmployees'))
+            );
+
+            const recommendedSchemes = db.schemes.filter(sch =>
+                sch.requiredFor.includes(selections.sector) || (selections.isStartup && sch.requiredFor.includes('isStartup'))
+            );
+
+            licensesContainer.innerHTML = `
+                <div class="glass-card p-6 rounded-2xl shadow-2xl">
+                    <h2 class="text-2xl font-semibold text-white mb-5 flex items-center"><i class="fas fa-tasks mr-3 text-cyan-300"></i>Your Required Licenses</h2>
+                    <div class="space-y-4">
+                        ${requiredLicenses.map(lic => `
+                            <div class="flex items-center justify-between p-4 bg-black/10 rounded-lg">
+                                <div><p class="font-bold text-white">${lic.name}</p><p class="text-sm text-gray-300">Dept: ${lic.dept}</p></div>
+                                <span class="text-sm font-semibold text-red-900 bg-red-300 px-3 py-1 rounded-full flex items-center"><i class="fa-solid fa-circle-xmark mr-2"></i>Not Started</span>
+                            </div>
+                        `).join('')}
+                         ${requiredLicenses.length === 0 ? `<p class="text-gray-300">No specific licenses identified for this sector based on your selections.</p>` : ''}
+                    </div>
+                </div>`;
+
+      
+            schemesContainer.innerHTML = `
+                <div class="glass-card p-6 rounded-2xl shadow-2xl">
+                    <h2 class="text-2xl font-semibold text-white mb-5 flex items-center"><i class="fas fa-lightbulb mr-3 text-yellow-300"></i>Recommended Schemes</h2>
+                    <div class="space-y-4">
+                        ${recommendedSchemes.map(sch => `
+                            <div class="group flex items-center justify-between p-4 bg-black/10 rounded-lg transition-all hover:bg-black/20">
+                                <div><p class="font-bold text-white">${sch.name}</p><p class="text-sm text-gray-300">${sch.desc}</p></div>
+                                <a href="#" class="text-sm font-bold text-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity">Learn More &rarr;</a>
+                            </div>
+                        `).join('')}
+                        ${recommendedSchemes.length === 0 ? `<p class="text-gray-300">No specific schemes identified. Explore national schemes for more options.</p>` : ''}
+                    </div>
+                </div>`;
+        }
+    </script>
+</body>
+</html>
